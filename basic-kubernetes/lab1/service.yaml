@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: example-service
+  namespace: lab1
+spec:
+  ports:
+  - nodePort: 30608
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    run: load-balancer-example
+  sessionAffinity: None
+  type: NodePort

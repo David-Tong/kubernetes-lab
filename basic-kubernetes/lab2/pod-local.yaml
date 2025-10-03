@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-local
+  namespace: lab2
+spec:
+  volumes:
+    - name: pv-local
+      persistentVolumeClaim:
+        claimName: pvc-local
+  containers:
+    - name: pv-local-container
+      image: nginx
+      ports:
+        - containerPort: 80
+          name: "http-server"
+      volumeMounts:
+        - mountPath: "/usr/share/nginx/html"
+          name: pv-local
