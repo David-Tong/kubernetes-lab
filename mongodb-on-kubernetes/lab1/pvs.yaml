@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-mongo
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 500Mi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+      path: "/mnt/mongo-data"
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-mongo2
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 500Mi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+      path: "/mnt/mongo-data2"
