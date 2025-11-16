@@ -18,8 +18,6 @@ serverInstances: 3
 router:
   instances: 1
   podSepc:
-    containers:
-    - name: router
     volumes:
     - emptyDir: {}
       name: varlog
