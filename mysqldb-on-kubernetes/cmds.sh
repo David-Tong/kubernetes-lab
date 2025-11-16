@@ -9,7 +9,6 @@ helm install mysql-cluster mysql-operator/mysql-innodbcluster \
     --set datadirVolumeClaimTemplate.storageClassName="nfs-client" \
     --set datadirVolumeClaimTemplate.resources.requests.storage=1Gi
 
+kubectl run -n mysql-lab1 --rm -it myshell --image=container-registry.oracle.com/mysql/community-operator -- mysqlsh 
 
-kubectl run -n mysql-lab1 --rm -it myshell --image=busybox -- sh
-
-kubectl run -n mysql-lab1 --rm -it mycurl --image=curlimages/curl -- bash
+\connect root@mysql-cluster.mysql-lab1.svc.cluster.local
