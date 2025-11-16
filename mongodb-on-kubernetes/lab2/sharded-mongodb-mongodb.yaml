@@ -1,0 +1,17 @@
+apiVersion: mongodb.com/v1
+kind: MongoDB
+metadata:
+  name: sharded-mongodb
+  namespace: mongodb-lab2
+spec:
+  shardCount: 2
+  mongodsPerShardCount: 3
+  mongosCount: 2
+  configServerCount: 3
+  version: "8.0.0"
+  #opsManager:
+  #  configMapRef:
+  #    name: sharded-mongodb
+  credentials: sharded-mongodb
+  type: ShardedCluster
+  persistent: true

@@ -1,0 +1,28 @@
+credentials:
+  root:
+    user: root
+    password: Open1sys
+    host: "%"
+
+tls:
+  useSelfSigned: true
+
+datadirVolumeClaimTemplate:
+  storageClassName: "nfs-client"
+  resources:
+    requests:
+      storage: 1Gi
+
+serverInstances: 3
+
+router:
+  instances: 1
+  podSepc:
+    containers:
+    - name: router
+    volumes:
+    - emptyDir: {}
+      name: varlog
+    volumeMounts:
+    - mountPath: /var/log
+      name: varlog
